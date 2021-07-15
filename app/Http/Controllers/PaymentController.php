@@ -143,4 +143,9 @@ class PaymentController extends Controller
         ]);
 
     }
+
+    public function revenge(Request $request)
+    {
+        dd($request);
+    }
 }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::post('/sobaka', [\App\Http\Controllers\PaymentController::class, 'kuliti']);
+Route::post('/revenge', [\App\Http\Controllers\PaymentController::class, 'revenge']);
 
 Route::get('/pay', [\App\Http\Controllers\PaymentController::class, 'pay']);
 Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
