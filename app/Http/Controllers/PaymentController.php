@@ -22,7 +22,6 @@ class PaymentController extends Controller
 
     public function test(Request $request)
     {
-        dd($request);
 
         $latestOrder = Order::orderBy('created_at', 'DESC')->first();
         if (is_null($latestOrder)) {
@@ -122,7 +121,7 @@ class PaymentController extends Controller
         dd(json_decode($otvet));
     }
 
-    public function response(Request $request)
+    public function kuliti(Request $request)
     {
 //        return response()->json('kt');
         dd($request);
