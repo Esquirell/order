@@ -123,6 +123,10 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
+        $contents = Storage::get('example.txt');
+        dd(json_decode($contents));
+
+
         $json = json_encode($request->input());
         Storage::disk('local')->put('example.txt', $json);
 
@@ -140,4 +144,6 @@ class PaymentController extends Controller
         ]);
 
     }
+
+
 }
