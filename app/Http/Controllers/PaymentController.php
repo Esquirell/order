@@ -124,6 +124,7 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
+        return response()->json('kt');
         dd($request);
 //        dd($request->input());
         $json = json_encode($request->input());
