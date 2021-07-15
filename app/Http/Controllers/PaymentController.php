@@ -15,7 +15,7 @@ class PaymentController extends Controller
 {
 
     const MERCHANT_ACCOUNT = 'test_merch_n1';
-    const MERCHANT_DOMAIN_NAME = '127.0.0.1:8000';
+    const MERCHANT_DOMAIN_NAME = 'http://95.47.114.115/';
     const PRODUCT_PRICE = 1;
     const KEY = "flk3409refn54t54t*FNJRET";
     public $redirectUrl;
