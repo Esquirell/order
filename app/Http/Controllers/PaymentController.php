@@ -121,14 +121,13 @@ class PaymentController extends Controller
         dd(json_decode($otvet));
     }
 
-    public function kuliti(Request $request)
+    public function response(Request $request)
     {
-//        return response()->json('kt');
-        dd($request);
-        dd($request->input());
         $json = json_encode($request->input());
 
         Storage::disk('local')->put('example.txt', $json);
+
+        dd();
 
         $time = (string)Carbon::now()->timestamp;
 
@@ -142,10 +141,5 @@ class PaymentController extends Controller
             'signature' => $hash
         ]);
 
-    }
-
-    public function revenge(Request $request)
-    {
-        dd($request);
     }
 }
