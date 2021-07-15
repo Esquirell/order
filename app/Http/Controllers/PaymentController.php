@@ -15,7 +15,7 @@ class PaymentController extends Controller
 {
 
     const MERCHANT_ACCOUNT = 'test_merch_n1';
-    const MERCHANT_DOMAIN_NAME = 'http://95.47.114.115';
+    const MERCHANT_DOMAIN_NAME = 'http://95.47.114.115/';
     const PRODUCT_PRICE = 1;
     const KEY = "flk3409refn54t54t*FNJRET";
     public $redirectUrl;
@@ -33,15 +33,15 @@ class PaymentController extends Controller
 
         $time = (string)Carbon::now()->timestamp;
 
-        $string = self::MERCHANT_ACCOUNT.';'
-            .self::MERCHANT_DOMAIN_NAME.';'
-            .$order_reference.';'
-            .$time.';'
-            .$request->input('productCount')[0].';'
-            .'UAH'.';'
-            .$request->input('productCount')[0].' крд.'.';'
-            .$request->input('productCount')[0].';'
-            .self::PRODUCT_PRICE;
+        $string = self::MERCHANT_ACCOUNT . ';'
+            . self::MERCHANT_DOMAIN_NAME . ';'
+            . $order_reference . ';'
+            . $time . ';'
+            . $request->input('productCount')[0] . ';'
+            . 'UAH' . ';'
+            . $request->input('productCount')[0] . ' крд.' . ';'
+            . $request->input('productCount')[0] . ';'
+            . self::PRODUCT_PRICE;
         $hash = hash_hmac("md5", $string, self::KEY);
 
         $user = Auth::user();
@@ -68,9 +68,9 @@ class PaymentController extends Controller
                 "0" => $request->input('productCount')[0]
             ],
             "apiVersion" => 2,
-            "serviceUrl" => self::MERCHANT_DOMAIN_NAME.'/a'
+            "serviceUrl" => "127.0.0.1:8000/response"
         ];
-//	dd($data);
+
         $data2 = $data;
         $data2['hash'] = $hash;
 
@@ -125,9 +125,8 @@ class PaymentController extends Controller
     public function response(Request $request)
     {
 //        dd($request->input());
-//        $json = json_encode($request->input());
-	$json = file_get_contents('php://input');
-dd($json);
+        $json = json_encode($request->input());
+        dd($json);
         Storage::disk('local')->put('example.txt', $json);
 
         $time = (string)Carbon::now()->timestamp;
