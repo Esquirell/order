@@ -22,7 +22,7 @@ class PaymentController extends Controller
 
     public function test(Request $request)
     {
-
+        dd($request);
 
         $latestOrder = Order::orderBy('created_at', 'DESC')->first();
         if (is_null($latestOrder)) {
