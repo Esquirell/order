@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->string('github_id')->nullable()->unique();
             $table->string('facebook_id')->nullable()->unique();
+            $table->integer('credits')->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

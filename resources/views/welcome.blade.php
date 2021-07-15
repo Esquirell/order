@@ -25,6 +25,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
+                        <a href="#" class="text-sm text-gray-700 underline">У вас {{Auth::user()->credits}} кредитов.</a>
                         <a href="{{ url('/pay') }}" class="text-sm text-gray-700 underline">Оплатить</a>
                         <a href="{{ url('/index') }}" class="text-sm text-gray-700 underline">Проверить</a>
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
