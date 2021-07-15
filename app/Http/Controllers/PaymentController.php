@@ -133,7 +133,7 @@ class PaymentController extends Controller
 //        Storage::disk('local')->put('example.txt', $json);
 
         if($obj['reasonCode'] === 1100) {
-            $order = Order::where('orderReference', $obj['orderReference'])->get();
+            $order = Order::where('orderReference', $obj['orderReference'])->first();
             $user = $order->user();
             $user->credits += $obj['amount'];
             $user->save();
