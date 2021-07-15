@@ -123,11 +123,11 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
+        dd($json = file_get_contents('php://input'));
         $json = json_encode($request->input());
 
         Storage::disk('local')->put('example.txt', $json);
 
-        dd();
 
         $time = (string)Carbon::now()->timestamp;
 
