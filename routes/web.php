@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/a', [\App\Http\Controllers\PaymentController::class, 'kuliti']);
+Route::post('/sobaka', [\App\Http\Controllers\PaymentController::class, 'kuliti']);
 
 Route::get('/pay', [\App\Http\Controllers\PaymentController::class, 'pay']);
 Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
