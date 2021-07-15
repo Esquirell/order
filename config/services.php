@@ -39,7 +39,7 @@ return [
     'github' => [
         'client_id'     => '6f7c3967ec42869af040',
         'client_secret' => '3a95e559fc39423183e51cc7a03def9d7c30a209',
-        'redirect'      => 'http://95.47.114.115/auth/github/callback',
+        'redirect'      => '/auth/github/callback',
     ],
 
 ];
