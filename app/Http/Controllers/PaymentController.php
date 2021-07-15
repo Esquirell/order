@@ -123,12 +123,12 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
-        $json = file_get_contents('php://input');
-        $obj = json_decode($json, true);
+//        $json = file_get_contents('php://input');
+//        $obj = json_decode($json, true);
 
-//        $contents = Storage::get('example.txt');
-//        $array = json_decode($contents, true);
-//        dd(key($array), $contents);
+        $contents = Storage::get('example.txt');
+        $array = json_decode($contents, true);
+        dd($array, $contents);
 
 
 //        $json = json_encode($request->input());
