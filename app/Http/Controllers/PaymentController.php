@@ -132,10 +132,10 @@ class PaymentController extends Controller
 //        $json = json_encode($request->input());
 //        Storage::disk('local')->put('example.txt', $json);
 
-        if($obj['reasonCode'] === 1100) {
+        if($obj['reasonCode'] === 1100 && $obj['transactionStatus'] == 'Approved') {
             $order = Order::where('orderReference', $obj['orderReference'])->first();
             $user = $order->user;
-            $user->credits += $obj['amount'];
+            $user->credits += $obj['amount']*100;
             $user->save();
         }
 
