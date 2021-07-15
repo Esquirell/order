@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/response', [\App\Http\Controllers\PaymentController::class, 'response']);
+Route::post('/a', [\App\Http\Controllers\PaymentController::class, 'response']);
 
 Route::get('/pay', [\App\Http\Controllers\PaymentController::class, 'pay']);
 Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
@@ -20,9 +20,9 @@ Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
 Route::get('/check/{id}', [\App\Http\Controllers\PaymentController::class, 'check'])->name('check');
 Route::get('/index', [\App\Http\Controllers\PaymentController::class, 'indexOrders']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
