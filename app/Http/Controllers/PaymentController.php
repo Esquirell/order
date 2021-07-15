@@ -125,7 +125,7 @@ class PaymentController extends Controller
     {
         $contents = Storage::get('example.txt');
         $array = json_decode($contents, true);
-        dd(key($array), $contents);
+        dd(json_decode(key($array)), $contents);
 
 
         $json = json_encode($request->input());
