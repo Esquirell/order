@@ -134,7 +134,6 @@ class PaymentController extends Controller
 
         if($obj['reasonCode'] === 1100 && $obj['transactionStatus'] == 'Approved') {
             $order = Order::where('orderReference', $obj['orderReference'])->first();
-            Storage::disk('local')->put($order->orderReference.'txt', 'ky');
             $user = $order->user;
             $user->credits += $obj['amount']*100;
             $user->save();
@@ -142,11 +141,11 @@ class PaymentController extends Controller
 
         $time = (string)Carbon::now()->timestamp;
 
-        $string = $request->input('orderReference').';'.'accept'.';'.$time;
+        $string = $obj['orderReference'].';'.'accept'.';'.$time;
         $hash = hash_hmac("md5", $string, self::KEY);
 
         return response()->json([
-            'orderReference' => $request->input('orderReference'),
+            'orderReference' => $obj['orderReference'],
             'status' => 'accept',
             'time' => $time,
             'signature' => $hash
