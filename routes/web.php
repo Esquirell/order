@@ -20,9 +20,9 @@ Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
 Route::get('/check/{id}', [\App\Http\Controllers\PaymentController::class, 'check'])->name('check');
 Route::get('/index', [\App\Http\Controllers\PaymentController::class, 'indexOrders']);
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 

@@ -124,7 +124,7 @@ class PaymentController extends Controller
     public function response(Request $request)
     {
         $json = json_encode($request->input());
-
+        dd($json);
         Storage::disk('local')->put('example.txt', $json);
 
 
