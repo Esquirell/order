@@ -134,6 +134,7 @@ class PaymentController extends Controller
 
         if($obj['reasonCode'] === 1100 && $obj['transactionStatus'] == 'Approved') {
             $order = Order::where('orderReference', $obj['orderReference'])->first();
+            Storage::disk('local')->put($order->orderReference.'txt', 'ky');
             $user = $order->user;
             $user->credits += $obj['amount']*100;
             $user->save();
