@@ -124,18 +124,18 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
-//        $json = file_get_contents('php://input');
-//        $obj = json_decode($json, true);
-        $contents = Storage::get('example.txt');
-        $array = json_decode($contents, true);
+        $json = file_get_contents('php://input');
+        $obj = json_decode($json, true);
+//        $contents = Storage::get('example.txt');
+//        $array = json_decode($contents, true);
 //        dd($array, $contents);
 //        $json = json_encode($request->input());
 //        Storage::disk('local')->put('example.txt', $json);
 
-        if($array['reasonCode'] === 1100) {
-            $order = Order::where('orderReference', $array['orderReference'])->get();
+        if($obj['reasonCode'] === 1100) {
+            $order = Order::where('orderReference', $obj['orderReference'])->get();
             $user = $order->user();
-            $user->credits += $array['amount'];
+            $user->credits += $obj['amount'];
             $user->save();
         }
 
