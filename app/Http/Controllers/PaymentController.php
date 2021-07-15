@@ -67,7 +67,7 @@ class PaymentController extends Controller
                 "0" => $request->input('productCount')[0]
             ],
             "apiVersion" => 2,
-            "serviceUrl" => self::MERCHANT_DOMAIN_NAME."/response"
+            "serviceUrl" => self::MERCHANT_DOMAIN_NAME."response"
         ];
 
         $data2 = $data;
