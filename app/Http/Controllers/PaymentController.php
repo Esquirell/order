@@ -124,9 +124,10 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
+        dd($request);
 //        dd($request->input());
         $json = json_encode($request->input());
-        dd($json);
+
         Storage::disk('local')->put('example.txt', $json);
 
         $time = (string)Carbon::now()->timestamp;
