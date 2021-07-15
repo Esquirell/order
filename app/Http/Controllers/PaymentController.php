@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use GuzzleHttp\Client;
 use GuzzleHttp\TransferStats;
 use Illuminate\Http\Request;
@@ -125,15 +126,18 @@ class PaymentController extends Controller
     {
 //        $json = file_get_contents('php://input');
 //        $obj = json_decode($json, true);
-
         $contents = Storage::get('example.txt');
         $array = json_decode($contents, true);
-        dd($array, $contents);
-
-
+//        dd($array, $contents);
 //        $json = json_encode($request->input());
-        Storage::disk('local')->put('example.txt', $json);
+//        Storage::disk('local')->put('example.txt', $json);
 
+        if($array['reasonCode'] === 1100) {
+            $order = Order::where('orderReference', $array['orderReference'])->get();
+            $user = $order->user();
+            $user->credits += $array['amount'];
+            $user->save();
+        }
 
         $time = (string)Carbon::now()->timestamp;
 
