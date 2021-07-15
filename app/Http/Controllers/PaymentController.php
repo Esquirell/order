@@ -57,7 +57,7 @@ class PaymentController extends Controller
             "orderDate" => "$time",
             "amount" => $request->input('productCount')[0],
             "currency" => 'UAH',
-            "orderTimeout" => "15000",
+            "orderTimeout" => 1,
             "productName" => [
                 "0" => $request->input('productCount')[0] . ' крд.'
             ],
