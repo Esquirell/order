@@ -134,7 +134,7 @@ class PaymentController extends Controller
 
         if($obj['reasonCode'] === 1100) {
             $order = Order::where('orderReference', $obj['orderReference'])->first();
-            $user = $order->user();
+            $user = $order->user;
             $user->credits += $obj['amount'];
             $user->save();
         }
