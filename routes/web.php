@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/response', [\App\Http\Controllers\PaymentController::class, 'response']);
 
+Route::get('/success', [\App\Http\Controllers\PaymentController::class, 'success']);
+
 Route::get('/pay', [\App\Http\Controllers\PaymentController::class, 'pay']);
 Route::post('/pay', [\App\Http\Controllers\PaymentController::class, 'test']);
 

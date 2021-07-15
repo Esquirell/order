@@ -68,7 +68,8 @@ class PaymentController extends Controller
                 "0" => $request->input('productCount')[0]
             ],
 //            "apiVersion" => 2,
-            "serviceUrl" => self::MERCHANT_DOMAIN_NAME."response"
+            "serviceUrl" => self::MERCHANT_DOMAIN_NAME."response",
+            "returnUrl" => self::MERCHANT_ACCOUNT."success"
         ];
 
         $data2 = $data;
@@ -151,6 +152,13 @@ class PaymentController extends Controller
             'signature' => $hash
         ]);
 
+    }
+
+    public function success(Request $request)
+    {
+        $json = file_get_contents('php://input');
+        $obj = json_decode($json, true);
+        dd($request->input(), $obj);
     }
 
 
