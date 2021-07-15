@@ -66,7 +66,7 @@ class PaymentController extends Controller
             "productCount" => [
                 "0" => $request->input('productCount')[0]
             ],
-            "apiVersion" => 2,
+//            "apiVersion" => 2,
             "serviceUrl" => self::MERCHANT_DOMAIN_NAME."response"
         ];
 
@@ -123,11 +123,11 @@ class PaymentController extends Controller
 
     public function response(Request $request)
     {
-        $contents = Storage::get('example.txt');
-        dd(json_decode($contents, true), $contents);
+//        $contents = Storage::get('example.txt');
+//        dd(json_decode($contents, true), $contents);
 
 
-        $json = json_encode($request->input());
+        $json = ($request->input());
         Storage::disk('local')->put('example.txt', $json);
 
 
