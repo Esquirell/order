@@ -37,9 +37,9 @@ return [
     ],
 
     'github' => [
-        'client_id'     => '3e8e793c5ab65d484b9f',
-        'client_secret' => 'd997cddbfb99a12a93e53ddf1070f401457eede1',
-        'redirect'      => 'http://95.47.114.115/',
+        'client_id'     => env('GITHUB_ID'),
+        'client_secret' => env('GITHUB_SECRET'),
+        'redirect'      => env('GITHUB_URL'),
     ],
 
 ];
